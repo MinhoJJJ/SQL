@@ -1,3 +1,23 @@
+CREATE OR REPLACE FUNCTION CANCEL_SEND_TIME2
+(
+	arg_SUBID  IN VARCHAR2
+)
+RETURN   VARCHAR2
+IS
+	v_cancel_send_time VARCHAR2(30);
+BEGIN
+	v_cancel_send_time :='';
+	if nvl(length(trim(arg_SUBID)),0) = 0 then
+		return  v_cancel_send_time;
+	else
+		select GET_DATEFMT(send_time) into v_cancel_send_time
+		from BILL_CANCEL
+		where SUBID = arg_SUBID;
+	end if;
+	
+	return v_cancel_send_time;
+END ;
+--------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION PLUS_STRING555 
 (
 	NAMES  IN  VARCHAR2
@@ -10,7 +30,7 @@ IS
 	RETURN NEW_NAME;
 END;
 
-
+-----------------------------------------------------------------
 CREATE OR REPLACE FUNCTION SUBSTR_STRING
 (
 	NAME  IN  VARCHAR2
