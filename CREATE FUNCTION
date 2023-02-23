@@ -43,7 +43,39 @@ IS
 	NEW_NAME:=SUBSTR(NAME,1,3)|| '****'|| SUBSTR(NAME,9,11) ;
 	RETURN NEW_NAME;
 END;
-
+------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION GET_AGE2 (
+	arg_AGE IN NUMBER 
+)
+RETURN CHAR
+IS
+	V_OUT   CHAR(2);
+BEGIN
+	-- 나이대 코드 반환 
+	IF arg_AGE < 10 THEN 
+		V_OUT := '00';
+	ELSIF arg_AGE < 20 THEN
+		V_OUT := '10';
+	ELSIF arg_AGE < 30 THEN
+		V_OUT := '20';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    ELSIF arg_AGE < 40 THEN
+		V_OUT := '30';
+	ELSIF arg_AGE < 50 THEN
+		V_OUT := '40';
+	ELSIF arg_AGE < 60 THEN
+		V_OUT := '50';
+	ELSE
+		V_OUT := '99';
+	END IF;
+	
+	RETURN V_OUT;
+-- ------------------------------------------------------------------------------
+-- Exception 처리
+-- ------------------------------------------------------------------------------
+EXCEPTION
+	WHEN OTHERS THEN
+		RETURN 'XX';
+END ;
 
 
 
