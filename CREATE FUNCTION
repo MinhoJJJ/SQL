@@ -1,0 +1,83 @@
+CREATE OR REPLACE FUNCTION CANCEL_SEND_TIME2
+(
+	arg_SUBID  IN VARCHAR2
+)
+RETURN   VARCHAR2
+IS
+	v_cancel_send_time VARCHAR2(30);
+BEGIN
+	v_cancel_send_time :='';
+	if nvl(length(trim(arg_SUBID)),0) = 0 then
+		return  v_cancel_send_time;
+	else
+		select GET_DATEFMT(send_time) into v_cancel_send_time
+		from BILL_CANCEL
+		where SUBID = arg_SUBID;
+	end if;
+	
+	return v_cancel_send_time;
+END ;
+--------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION PLUS_STRING555 
+(
+	NAMES  IN  VARCHAR2
+)
+RETURN VARCHAR2
+IS
+	NEW_NAME VARCHAR2(50);
+	BEGIN
+	NEW_NAME:=CONCAT(NAMES,'SSS');
+	RETURN NEW_NAME;
+END;
+
+-----------------------------------------------------------------
+CREATE OR REPLACE FUNCTION SUBSTR_STRING
+(
+	NAME  IN  VARCHAR2
+)
+RETURN VARCHAR2
+IS
+	NEW_NAME VARCHAR2(50);
+	
+	BEGIN
+	NEW_NAME:=SUBSTR(NAME,1,3)|| '****'|| SUBSTR(NAME,9,11) ;
+	RETURN NEW_NAME;
+END;
+------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION GET_AGE2 (
+	arg_AGE IN NUMBER 
+)
+RETURN CHAR
+IS
+	V_OUT   CHAR(2);
+BEGIN
+	-- 나이대 코드 반환 
+	IF arg_AGE < 10 THEN 
+		V_OUT := '00';
+	ELSIF arg_AGE < 20 THEN
+		V_OUT := '10';
+	ELSIF arg_AGE < 30 THEN
+		V_OUT := '20';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    ELSIF arg_AGE < 40 THEN
+		V_OUT := '30';
+	ELSIF arg_AGE < 50 THEN
+		V_OUT := '40';
+	ELSIF arg_AGE < 60 THEN
+		V_OUT := '50';
+	ELSE
+		V_OUT := '99';
+	END IF;
+	
+	RETURN V_OUT;
+-- ------------------------------------------------------------------------------
+-- Exception 처리
+-- ------------------------------------------------------------------------------
+EXCEPTION
+	WHEN OTHERS THEN
+		RETURN 'XX';
+END ;
+
+
+
+SELECET PULS_STRING555('5555')
+FROM DUAL;
