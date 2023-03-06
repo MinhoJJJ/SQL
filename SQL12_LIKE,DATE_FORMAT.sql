@@ -1,0 +1,10 @@
+
+SELECT
+     BOOK_ID,
+     DATE_FORMAT(PUBLISHED_DATE,'%Y-%m-%d') AS PUBLISHED_DATE // 년월일 출력 부분
+FROM BOOK
+WHERE 1=1
+    AND CATEGORY='인문' // 인문 부분만 찾기
+    AND PUBLISHED_DATE LIKE '%2021%'; // 2021년만 찾기
+
+﻿
