@@ -1,0 +1,5 @@
+SELECT
+    NAME,
+    DATETIME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID DESC;   --동물아이디를 내림차순으로 정렬
