@@ -1,0 +1,6 @@
+-- 코드를 입력하세요
+SELECT
+    ANIMAL_ID,
+    NAME
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID;  --동물아이디로 ORDER BY합니다.
