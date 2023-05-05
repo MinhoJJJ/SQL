@@ -1,0 +1,5 @@
+-- 코드를 입력하세요
+SELECT FLAVOR.   // 맛만을 출력
+FROM FIRST_HALF
+WHERE 1=1
+ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID;   // order by 조건1, 조건2
