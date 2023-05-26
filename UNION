@@ -1,0 +1,17 @@
+SELECT employee_id, first_name
+FROM employees
+WHERE department = 'Sales'
+UNION
+SELECT employee_id, first_name
+FROM employees
+WHERE department = 'Marketing'
+
+
++-------------+------------+------------+
+| employee_id | first_name | department |
++-------------+------------+------------+
+|    1001     |    John    |   Sales    |
+|    1002     |    Mary    |   Sales    |
+|    2001     |  Michael   | Marketing  |
+|    2002     |    Emma    | Marketing  |
++-------------+------------+------------+
